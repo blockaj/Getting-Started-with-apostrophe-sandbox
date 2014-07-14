@@ -144,5 +144,32 @@ Now are page looks like this:
 To populate our homepage, we could create a blog and have our homepage display some of the most recent posts. 
 
 ##Adding a blog
+
+###Blog setup
 To add a blog, we need to add an `apostrophe-blog-2` folder in our project, specifically, right here: <img src="apostrophe-blog-2-local.png" style="display: block">
-Inside that 
+Inside that we'll add a `views` folder. Finally, inside the views folder add `index.html` and `show.html`. `index.html` will show us all of our blog posts and `show.html` will be the page with the actual blog post on it as well as the place you will go to when you want to edit the blog post. 
+
+Have both the `index.html` and `show.html` pages extend `layout.html`. Now, we have to add our new template(s) to `app.js`. Now the pages section of our `app.js` should look like this: 
+
+	  pages: {
+     	types: [
+      		{ name: 'home', label: 'Home Page' },
+      		{ name: 'blog', label: 'Blog'}
+    	]
+  	}, 
+
+Don't worry that we have our `name` set to `blog`. Apostrophe will know where to look for your blog. I'm also going to add a `summary` field to the blog module that I can put on the front page so people can see what each post is about. 
+	
+	//In modules
+	 'apostrophe-blog-2': {
+      addFields: [
+        {
+          name: 'summary',
+          type: area,
+          label: 'Summary'
+        }
+      ]
+    },
+
+
+###Making the blog
