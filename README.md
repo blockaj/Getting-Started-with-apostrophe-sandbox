@@ -141,3 +141,5 @@ Now we can style our header a little bit. We don't have a less file for our home
 Now are page looks like this:
 !["Look at our new apostrophe site!"](apostrophe-site2.png)
 To populate our homepage, we could create a blog and have our homepage display some of the most recent posts. 
+
+##Adding a blog
