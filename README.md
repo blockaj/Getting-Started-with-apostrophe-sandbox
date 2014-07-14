@@ -111,7 +111,9 @@ Now we've got a really basic header. Let's start styling it.
 Now we can style our header a little bit. We don't have a less file for our homepage yet, so first, let's create one. In `public/css` I added a file called `home.less`. In order for our new less file to work, we need to add `@import 'home.less;` into our `site.less` file. Now we can add to `home.less`. 
 
 	.header {
-		margin: 5%;
+		width: 90%;
+		height: 400px;
+		margin: 5% auto;
 		h1 {
 			font-size: 5em;
 			font-weight: 700;
@@ -138,4 +140,4 @@ Now we can style our header a little bit. We don't have a less file for our home
 	}
 Now are page looks like this:
 !["Look at our new apostrophe site!"](apostrophe-site2.png)
-
+To populate our homepage, we could create a blog and have our homepage display some of the most recent posts. 
