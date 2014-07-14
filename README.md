@@ -108,3 +108,34 @@ In a apostrophe, we've got an object called page with a property called tabs. We
 Now we've got a really basic header. Let's start styling it. 
 
 ##Adding style 
+Now we can style our header a little bit. We don't have a less file for our homepage yet, so first, let's create one. In `public/css` I added a file called `home.less`. In order for our new less file to work, we need to add `@import 'home.less;` into our `site.less` file. Now we can add to `home.less`. 
+
+	.header {
+		margin: 5%;
+		h1 {
+			font-size: 5em;
+			font-weight: 700;
+			font-family: sans-serif;
+		}
+		.nav {
+			ul {
+				li {
+					display: inline-block;
+					a {
+						font-size: 1.3em;
+						font-family: sans-serif;
+						color: black;
+						font-weight: 600;
+						text-decoration: none;
+						line-height: 1.3em;
+						&:hover {
+							text-decoration: underline;
+						}
+					}
+				}
+			}
+		}
+	}
+Now are page looks like this:
+!["Look at our new apostrophe site!"](apostrophe-site2.png)
+
