@@ -63,7 +63,7 @@ Now, you're ready to start working on the html and css for your apostrophe site.
 ##Gutting the pages
 If you run `node app` in your terminal now and try to log on to your site, you should get some errors. These are telling you that you're missing some files specified in `site.less`. `site.less` takes all of your css or less files and combines them into one, big css file. To fix this error, go into your `site.less` file and delete all of the lines that `@import` the less files that we deleted above. 
 
-Now take a look at the `layout.html` file in `views/global`. <img src="layout-local.png" style="float: right; margin: 3%">
+Now take a look at the `layout.html` file in `views/global`. <img src="layout-local.png" style="margin: 3%">
 It looks like there's a lot going on in here but you can delete practically all of it. You should see  `{% block header %}`. You can delete everything inside this block. Make sure not to delete the `{% endblock %}` that corresponds with our header block. 
 
 You can delete the breadcrumbs block all together if you want, even the block itself. You should delete everything inside `{% block main %}` just like we did with the header block. Again, don't delete the blog itself, just the content inside. 
