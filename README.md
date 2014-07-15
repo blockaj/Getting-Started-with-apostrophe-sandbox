@@ -170,14 +170,17 @@ Don't worry that we have our `name` set to `blog`. Apostrophe will know where to
 	
 	//In modules
 	 'apostrophe-blog-2': {
-      addFields: [
-        {
-          name: 'summary',
-          type: 'area',
-          label: 'Summary'
-        }
-      ]
-    },
+		pieces: {
+			addFields: [
+        		{
+          			name: 'summary',
+          			type: 'string', 
+					textarea: true,
+        			label: 'Summary'
+        		}
+      		]
+		}
+   	},
 
 
 ###Making the blog
@@ -192,5 +195,43 @@ Now let's add some markup to our `index.html` first. From `index` we can access 
 		{% endfor %}
 	</ul>
 You can add the title of the page above this if you want with `{{ page.title }}`. 
-On 	`show.html` you can add the post title by accessing `{{ page.title }}` once again. To be able to add content to the post, I just added an `aposArea`. 
+On 	`show.html` you can add the post title by accessing `{{ page.title }}` once again. To be able to add content to the post, I just added an `aposArea`.
+###Adding our posts to the homepage
+You can see that we have access to the pieces object on the index page of apostrophe-blog-2. Unfortunately, we don't have access to this object on the homepage. So, how do we get all those posts on the homepage like we want? We use widgets.
+
+1. Add `widget.html` and `blogMacros.html` to the `views` folder of the apostrophe-blog-2 module that we added. 
+2. Edit `blogMacros.html` to give the widget we'll be making the content you want (using nunjucks macros):
+	*	We're going to have two macros, one to render the blog post:
+
+			{% macro renderBlogPost%}
+				<a href="{{piece.slug}}"><li>
+					<b>{{piece.title}}</b>
+					<p>{{piece.summary}}</p>
+				</li></a>
+			{% endmacro %}
+Notice that we need to add a parameter to `renderBlogPost` called `piece`. This is because we can't access our pieces object from `blogMacros.html`.
+ * And one to get the blog posts in a list:
+
+			{% macro renderBlogPosts(pieces) %}
+				<ul>
+					{% for piece in pieces %}
+						{% renderBlogPost %}
+					{% endfor %}
+				</ul>
+			{% endmacro %}
+Notice (again) that we need to add a parameter to `renderBlogPosts` called `pieces`. This is *also* becaue we can't access our pieces object from `blogMacros.html`.
+3. Go into `widget.html` and add:
+
+		{% include 'blogMacros.html' %}
+
+		{% renderBlogPosts(item._pieces) %}
+From `widget.html`, you can see we can finally access our pieces object (although slightely differently from the way we access it in `index.html`). Just remember that you **have** to pass `item._pieces` to your macro with an underscore before pieces. 
+4. Finally, we can add the widget to our homepage. Go to `home.html` in our `views` folder. Adding a widget like the one we made is easy. Just add a singleton that looks like this: `{{ aposSingleton(page, 'archive', 'blog') }}` The second argument we pass to `aposSingleton` is the name of the singleton. and the last value we pass is the type of singleton. 
+
+		
+
+			
+
+
+	
 
