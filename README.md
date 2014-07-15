@@ -165,7 +165,7 @@ Don't worry that we have our `name` set to `blog`. Apostrophe will know where to
       addFields: [
         {
           name: 'summary',
-          type: area,
+          type: 'area',
           label: 'Summary'
         }
       ]
@@ -173,3 +173,16 @@ Don't worry that we have our `name` set to `blog`. Apostrophe will know where to
 
 
 ###Making the blog
+Now let's add some markup to our `index.html` first. From `index` we can access an object called `pieces` that holds all of our blog posts. To list all of our blog posts out, I added this to the `index.html` page: 
+
+	<ul>
+		{% for piece in pieces %}
+			<li>
+				<a href="{{ piece.slug }}"><b>{{ piece.title }}</b></a>
+				{{ piece.summary }}
+			</li>
+		{% endfor %}
+	</ul>
+You can add the title of the page above this if you want with `{{ page.title }}`. 
+On 	`show.html` you can add the post title by accessing `{{ page.title }}` once again. To be able to add content to the post, I just added an `aposArea`. 
+
