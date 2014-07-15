@@ -84,7 +84,7 @@ Now, you're ready to start working on the html and css for your apostrophe site.
 ##Gutting the pages
 If you run `node app` in your terminal now and try to log on to your site, you should get some errors. These are telling you that you're missing some files specified in `site.less`. `site.less` takes all of your css or less files and combines them into one, big css file. To fix this error, go into your `site.less` file and delete all of the lines that `@import` the less files that we deleted above. 
 
-###Layout.html
+###Layout
 Now take a look at the `layout.html` file in `views/global`. <img src="layout-local.png" style="margin: 3%">
 It looks like there's a lot going on in here but you can delete practically all of it. 
 1. You should see  `{% block header %}`. You can delete everything inside this block. Make sure not to delete the `{% endblock %}` that corresponds with our header block. 
@@ -95,7 +95,7 @@ It looks like there's a lot going on in here but you can delete practically all 
 
 At this point, you should just see a collection of nunjucks blocks in your `layout.html`. Now, we can go over what all of these sections are. 
 
-###home.html and other templates
+###Home and other templates
 Later, when you go into `home.html`, you'll see that the first line is a nunjucks line: `{% extends 'layout.html' %}`. As you may already know, this means that `home.html` can access all of the nunjucks blocks inside of `layout.html`. Let's say you want a header that is common to all pages on your apostrophe site. If you have all of your templates extend layout, you can do that really easily. Now let's say you want to have the same header on all of your pages except for the homepage. You still have all of the pages (including `home.html`) extend `layout.html`. You would put `{% block header %}` in your `home.html` to override whatever the header is in `layout.html`.  Using these blocks is a way of easily managing content across all of your pages. 
 
 Now, go into `home.html` and delete all of the content inside the hero and mainContent blocks. 
