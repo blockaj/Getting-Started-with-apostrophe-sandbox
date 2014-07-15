@@ -215,7 +215,7 @@ Notice that we need to add a parameter to `renderBlogPost` called `piece`. This 
 			{% macro renderBlogPosts(pieces) %}
 				<ul>
 					{% for piece in pieces %}
-						{% renderBlogPost %}
+						{{ renderBlogPost(piece) }}
 					{% endfor %}
 				</ul>
 			{% endmacro %}
@@ -224,11 +224,11 @@ Notice (again) that we need to add a parameter to `renderBlogPosts` called `piec
 
 		{% include 'blogMacros.html' %}
 
-		{% renderBlogPosts(item._pieces) %}
+		{{ renderBlogPosts(item._pieces) }}
 From `widget.html`, you can see we can finally access our pieces object (although slightely differently from the way we access it in `index.html`). Just remember that you **have** to pass `item._pieces` to your macro with an underscore before pieces. 
-4. Finally, we can add the widget to our homepage. Go to `home.html` in our `views` folder. Adding a widget like the one we made is easy. Just add a singleton that looks like this: `{{ aposSingleton(page, 'archive', 'blog') }}` The second argument we pass to `aposSingleton` is the name of the singleton. and the last value we pass is the type of singleton. 
+4. Finally, we can add the widget to our homepage. Go to `home.html` in our `views` folder. Adding a widget like the one we made is easy. Just add a singleton that looks like this: `{{ aposSingleton(page, 'archive', 'blog') }}` The second argument we pass to `aposSingleton` is the name of the singleton, and the last value we pass is the type of singleton. You'll see an Apostrophe singleton pop up on your homepage. 
 
-		
+
 
 			
 
