@@ -3,11 +3,14 @@
 apostrophe-sandbox is an apostrophe server that has everything you need, where you need to get started quickly. Learn how to make you own apostrophe site from the beginning.
 
 ##Setup
+###Downloading and installing apostrophe-sandbox
 1.	You can download apostrophe-sandbox from Github by typing into your terminal:
 
 		git clone https://github.com/punkave/apostrophe-sandbox.git 
 2.	Once downloaded you can `cd` into the directory where you downloaded apostrophe-sandbox and type `npm install`. 
-3. Once you're done installing all of the modules, you can open your project. At the top, you should see something that looks like this:
+
+###Server-side Setup
+1. Once you're done installing all of the modules, you can open your project. At the top, you should see something that looks like this:
 
   		root: module,
   		shortName: 'apostrophe-sandbox',
@@ -19,7 +22,7 @@ apostrophe-sandbox is an apostrophe server that has everything you need, where y
  * `sessionSecret` can be whatever you want. Just keep in mind that it's there for security purposes so if it's complicated, that's okay. *
  * Lastly, you should change `adminPassword`. This is the password you will use to log in to your apostrophe site. 
 
-4.	With all this basic setup done, make your way down to the part of `app.js` that looks like this: 
+2.	With all this basic setup done, make your way down to the part of `app.js` that looks like this: 
 
 		pages: {
     		types: [
@@ -36,7 +39,8 @@ apostrophe-sandbox is an apostrophe server that has everything you need, where y
   		},
 As you may have guessed, this is where you specify all of the different page templates in apostrophe. The `name` is the name of the html file stored in `view/pages/`. Here, you can delete everything except for the home template that looks like `{ name: 'home', label: 'Home Page' }`.
 
-5.	Now that you've deleted all of the templates in `app.js` you need to delete all of them in the apostrophe-sandbox directory. Go into the `views/pages` directory in apostrophe-sandbox. You can delete the following files:
+###File clean-up
+1.	Now that you've deleted all of the templates in `app.js` you need to delete all of them in the apostrophe-sandbox directory. Go into the `views/pages` directory in apostrophe-sandbox. You can delete the following files:
  *	 blocks.html
  *	 company.html
  *	 default.html
@@ -44,7 +48,7 @@ As you may have guessed, this is where you specify all of the different page tem
  *	 onecolumn.html
  *	 sections.html
 
-6. Finally, go into `public/css`. You can also delete the following files:
+2. Finally, go into `public/css`. You can also delete the following files:
  *	blog.less
  * homepage.less
  * defaults.less
@@ -63,6 +67,7 @@ Now, you're ready to start working on the html and css for your apostrophe site.
 ##Gutting the pages
 If you run `node app` in your terminal now and try to log on to your site, you should get some errors. These are telling you that you're missing some files specified in `site.less`. `site.less` takes all of your css or less files and combines them into one, big css file. To fix this error, go into your `site.less` file and delete all of the lines that `@import` the less files that we deleted above. 
 
+###Layout.html
 Now take a look at the `layout.html` file in `views/global`. <img src="layout-local.png" style="margin: 3%">
 It looks like there's a lot going on in here but you can delete practically all of it. You should see  `{% block header %}`. You can delete everything inside this block. Make sure not to delete the `{% endblock %}` that corresponds with our header block. 
 
@@ -72,11 +77,14 @@ You can delete the extra content block all together. You can delete everything i
 
 At this point, you should just see a collection of nunjucks blocks in your `layout.html`. Now, we can go over what all of these sections are. 
 
+###Home.html and other templates
 Later, when you go into `home.html`, you'll see that the first line is a nunjucks line: `{% extends 'layout.html' %}`. As you may already know, this means that `home.html` can access all of the nunjucks blocks inside of `layout.html`. Let's say you want a header that is common to all pages on your apostrophe site. If you have all of your templates extend layout, you can do that really easily. Now let's say you want to have the same header on all of your pages except for the homepage. You still have all of the pages (including `home.html`) extend `layout.html`. You would put `{% block header %}` in your `home.html` to override whatever the header is in `layout.html`.  Using these blocks is a way of easily managing content across all of your pages. 
 
 Now, go into `home.html` and delete all of the content inside the hero and mainContent blocks. 
 
 ##Adding content
+
+###Header for your homepage
 Now lets create a simple homepage. Let's have the header on the homepage be different from every other page. As I said before, this means we'll override the header block in `layout.html` by adding a header block of our own inside `home.html`. I've created the beginnings of my homepage header:
 
 	{% block header%}
