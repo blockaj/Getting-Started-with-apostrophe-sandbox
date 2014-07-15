@@ -69,15 +69,16 @@ If you run `node app` in your terminal now and try to log on to your site, you s
 
 ###Layout.html
 Now take a look at the `layout.html` file in `views/global`. <img src="layout-local.png" style="margin: 3%">
-It looks like there's a lot going on in here but you can delete practically all of it. You should see  `{% block header %}`. You can delete everything inside this block. Make sure not to delete the `{% endblock %}` that corresponds with our header block. 
+It looks like there's a lot going on in here but you can delete practically all of it. 
+1. You should see  `{% block header %}`. You can delete everything inside this block. Make sure not to delete the `{% endblock %}` that corresponds with our header block. 
 
-You can delete the breadcrumbs block all together if you want, even the block itself. You should delete everything inside `{% block main %}` just like we did with the header block. Again, don't delete the blog itself, just the content inside. 
+2. You can delete the breadcrumbs block all together if you want, even the block itself. You should delete everything inside `{% block main %}` just like we did with the header block. Again, don't delete the blog itself, just the content inside. 
 
-You can delete the extra content block all together. You can delete everything inside `{% block footerBody %}`. You could leave `{% block footer %}` and delete everything inside of it. It's just a matter of how you want to organize your template. You can also add or delete blocks later if you need to. 
+3. You can delete the extra content block all together as well as everything inside `{% block footerBody %}`. You could leave `{% block footer %}` and delete everything inside of it. It's just a matter of how you want to organize your template. You can also add or delete blocks later if you need to. 
 
 At this point, you should just see a collection of nunjucks blocks in your `layout.html`. Now, we can go over what all of these sections are. 
 
-###Home.html and other templates
+###home.html and other templates
 Later, when you go into `home.html`, you'll see that the first line is a nunjucks line: `{% extends 'layout.html' %}`. As you may already know, this means that `home.html` can access all of the nunjucks blocks inside of `layout.html`. Let's say you want a header that is common to all pages on your apostrophe site. If you have all of your templates extend layout, you can do that really easily. Now let's say you want to have the same header on all of your pages except for the homepage. You still have all of the pages (including `home.html`) extend `layout.html`. You would put `{% block header %}` in your `home.html` to override whatever the header is in `layout.html`.  Using these blocks is a way of easily managing content across all of your pages. 
 
 Now, go into `home.html` and delete all of the content inside the hero and mainContent blocks. 
@@ -229,8 +230,21 @@ From `widget.html`, you can see we can finally access our pieces object (althoug
 4. Finally, we can add the widget to our homepage. Go to `home.html` in our `views` folder. Adding a widget like the one we made is easy. Just add a singleton that looks like this: `{{ aposSingleton(page, 'archive', 'blog') }}` The second argument we pass to `aposSingleton` is the name of the singleton, and the last value we pass is the type of singleton. You'll see an Apostrophe singleton pop up on your homepage. 
 
 
+##Other resources
+Now you have a basic understanding of the architecture of apostrophe-sandbox as well as the syntax to add different types of editable content. However, there's a lot we didn't cover so before you try to figure something out on your own take a look at the rest of the apostrophe documentation: 
 
-			
+*	[Apostrophe Now](http://apostrophenow.org)
+*	[Apostrophe](http://github.com/punkave/apostrophe)
+* 	[Apostrophe Blog 2](http://github.com/punkave/apostrophe-blog-2)
+*  [Apostrophe Snippets](http://github.com/punkave/apostrophe-snippets)
+*  [Apostrophe Map](http://github.com/punkave/apostrophe-map)
+*  [Apostrophe Events](http://github.com/punkave/apostrophe-events)
+*  [Apostrophe Schemas](http://github.com/punkave/apostrophe-schemas)
+*  [Apostrophe Blocks](http://github.com/punkave/apostrophe-blocks)
+*  [Apostrophe Twitter](http://github.com/punkave/apostrophe-twitter)
+*  [Apostrophe Facebook](http://github.com/punkave/apostrophe-facebook)
+*  [Apostrophe Tumblr](http://github.com/punkave/apostrophe-tumblr)
+
 
 
 	
