@@ -2,7 +2,24 @@
 
 apostrophe-sandbox is an apostrophe server that has everything you need, where you need to get started quickly. Learn how to make you own apostrophe site from the beginning.
 
-##Setup
+##Table of Contents 
+*	[Set-up](#set-up)
+	*	[Downloading and installing apostrophe-sandbox](#downloading-and-installing-apostrophe-sandbox)
+ * [Server-side Setup](#server-side-setup)
+ * [File clean-up](#file-clean-up)
+*	[Gutting the pages](#gutting-the-pages)
+	* 	[Layout.html](#layout.html)
+	*  	[home.html and other template](#home.html-and-other-templates)
+*	[Adding content](#adding-content)
+	*	[Header for your homepage](#header-for-your-homepage)
+*	[Adding style](#adding-style)
+* 	[Adding a blog](#adding-a-blog)
+	*	[Blog set-up](#blog-set-up)
+ * 	[Making the blog](#making-the-blog)
+ *  [Adding our posts to the homepage](#adding-our-posts-to-the-homepage)
+* [Other resources](#other-resources)
+
+##Set-up
 ###Downloading and installing apostrophe-sandbox
 1.	You can download apostrophe-sandbox from Github by typing into your terminal:
 
@@ -154,7 +171,7 @@ To populate our homepage, we could create a blog and have our homepage display s
 
 ##Adding a blog
 
-###Blog setup
+###Blog set-up
 To add a blog, we need to add an `apostrophe-blog-2` folder in our project, specifically, right here: <img src="apostrophe-blog-2-local.png" style="display: block">
 Inside that we'll add a `views` folder. Finally, inside the views folder add `index.html` and `show.html`. `index.html` will show us all of our blog posts and `show.html` will be the page with the actual blog post on it as well as the place you will go to when you want to edit the blog post. 
 
