@@ -1,6 +1,9 @@
 #Getting Started with apostrophe-sandbox
 
-apostrophe-sandbox is an apostrophe server that has everything you need, where you need to get started quickly. Learn how to make you own apostrophe site from the beginning.
+apostrophe-sandbox is an apostrophe server that has everything you need, where you need to get started quickly. This tutorial will help you get familiar with the basic project structure of an apostrophe-sandbox project as well as become familiar with the way apostrophe implements the nunjucks templating engine. It is recommended that you are familiar with the following before you continue with this tutorial: 
+*	[Nunjucks](http://mozilla.github.io/nunjucks/)
+* 	[Less](http://lesscss.org/)
+*  [Apostrophe](http://apostrophenow.org/tutorials/getting-started/requirements.html)
 
 ##Table of Contents 
 *	[Set-up](#set-up)
@@ -248,7 +251,7 @@ From `widget.html`, you can see we can finally access our pieces object (althoug
 
 
 ##Other resources
-Now you have a basic understanding of the architecture of apostrophe-sandbox as well as the syntax to add different types of editable content. However, there's a lot we didn't cover so before you try to figure something out on your own take a look at the rest of the apostrophe documentation: 
+Now you have a basic understanding of the structures of apostrophe-sandbox as well as the syntax to add different types of editable content. However, there's a lot we didn't cover so before you try to figure something out on your own take a look at the rest of the apostrophe documentation: 
 
 *	[Apostrophe Now](http://apostrophenow.org)
 *	[Apostrophe](http://github.com/punkave/apostrophe)
@@ -261,8 +264,3 @@ Now you have a basic understanding of the architecture of apostrophe-sandbox as 
 *  [Apostrophe Twitter](http://github.com/punkave/apostrophe-twitter)
 *  [Apostrophe Facebook](http://github.com/punkave/apostrophe-facebook)
 *  [Apostrophe Tumblr](http://github.com/punkave/apostrophe-tumblr)
-
-
-
-	
-
