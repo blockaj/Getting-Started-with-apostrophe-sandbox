@@ -1,6 +1,8 @@
 #Getting Started with apostrophe-sandbox
 
 apostrophe-sandbox is an apostrophe server that has everything you need, where you need to get started quickly. This tutorial will help you get familiar with the basic project structure of an apostrophe-sandbox project as well as become familiar with the way apostrophe implements the nunjucks templating engine. It is recommended that you are familiar with the following before you continue with this tutorial: 
+*	HTML
+* 	CSS
 *	[Nunjucks](http://mozilla.github.io/nunjucks/)
 * 	[Less](http://lesscss.org/)
 *  [Apostrophe](http://apostrophenow.org/tutorials/getting-started/requirements.html)
@@ -90,11 +92,12 @@ If you run `node app` in your terminal now and try to log on to your site, you s
 ###Layout
 Now take a look at the `layout.html` file in `views/global`. <img src="layout-local.png" style="margin: 3%">
 It looks like there's a lot going on in here but you can delete practically all of it. 
-1. You should see  `{% block header %}`. You can delete everything inside this block. Make sure not to delete the `{% endblock %}` that corresponds with our header block. 
 
-2. You can delete the breadcrumbs block all together if you want, even the block itself. You should delete everything inside `{% block main %}` just like we did with the header block. Again, don't delete the blog itself, just the content inside. 
+1. You should see  `{% block header %}`. You can delete everything inside this block. Make sure not to delete the `{% endblock %}` that corresponds with our header block. The header block will appear at the top of your page. You may want the same header on many or all of your pages. You can put that header in this block. If you want a different header, maybe on you homepage, you can add a header block on your home template and it will override the header block we see in layout.  
 
-3. You can delete the extra content block all together as well as everything inside `{% block footerBody %}`. You could leave `{% block footer %}` and delete everything inside of it. It's just a matter of how you want to organize your template. You can also add or delete blocks later if you need to. 
+2. The breadcrumbs block is where you put your breadcrumbs (duh). With a breadcrumbs section on your webpage you can see the page tree to the webapge you're currently on. It's up to you whether or not you want to keep this. You should delete everything inside `{% block main %}` just like we did with the header block. Again, don't delete the block itself, just the content inside. The main block is where we will put all of our content for each page. You may not want anything in the main block on your `layout.html` but you'll definitely want stuff in your main block on other pages. 
+
+3. You can delete the extra content block all together as well as everything inside `{% block footerBody %}`. You could leave `{% block footer %}` and delete everything inside of it. It's just a matter of how you want to organize your template. You can also add or delete blocks later if you need to. The footer block is where you put the footer. This can contain some links to certain pages like About or Contact or can hold a copyright notice. 
 
 At this point, you should just see a collection of nunjucks blocks in your `layout.html`. Now, we can go over what all of these sections are. 
 
